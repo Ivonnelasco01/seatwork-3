@@ -17,12 +17,12 @@ while True:
     frame_blur = cv2.GaussianBlur(frame_cvt, (5, 5), 0)
     frame_edge = cv2.Canny(frame_blur, 30, 50)
     #show the img
-    cv2.imshow('Smart Scanner', frame)
-    contours, h = cv2.findCountors(frame_edge, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+    contours, h = cv2.findContours(frame_edge, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
     if contours:
         max_contour = max(contours, key=cv2.contourArea)
         x, y, w, h = cv2.boundingRect(max_contour)
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 255), 2)
+    cv2.imshow('Smart Scanner', frame)
     #save img
     if cv2.waitKey(1) == ord('s'):
         img_pil = Image.fromarray(frame)
