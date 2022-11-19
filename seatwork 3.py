@@ -13,8 +13,9 @@ while True:
     img_bytes = bytearray(img.read())
     img_np = np.array(img_bytes, dtype=np.uint8)
     frame = cv2.imdecode(img_np, -1)
+    frame_cvt = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     #show the img
-    cv2.imshow('Smart Scanner', frame)
+    cv2.imshow('Smart Scanner', frame_cvt)
     #save img
     if cv2.waitKey(1) == ord('s'):
         img_pil = Image.fromarray(frame)
