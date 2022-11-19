@@ -21,6 +21,8 @@ while True:
     if contours:
         max_contour = max(contours, key=cv2.contourArea)
         x, y, w, h = cv2.boundingRect(max_contour)
+        if cv2.contourArea(max_contour) > 5000:
+            cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 255), 2)
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 255), 2)
     cv2.imshow('Smart Scanner', frame)
     #save img
