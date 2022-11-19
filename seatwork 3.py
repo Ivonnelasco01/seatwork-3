@@ -19,4 +19,4 @@ while True:
     if cv2.waitKey(1) == ord('s'):
         img_pil = Image.fromarray(frame)
         img_pil.save('my scanned item.pdf')
-         print('save')
+        print('save')
