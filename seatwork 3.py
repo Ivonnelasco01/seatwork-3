@@ -15,8 +15,9 @@ while True:
     frame = cv2.imdecode(img_np, -1)
     frame_cvt = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     frame_blur = cv2.GaussianBlur(frame_cvt, (5, 5), 0)
+    frame_edge = cv2.Canny(frame_blur, 30, 50)
     #show the img
-    cv2.imshow('Smart Scanner', frame_cvt)
+    cv2.imshow('Smart Scanner', frame_edge)
     #save img
     if cv2.waitKey(1) == ord('s'):
         img_pil = Image.fromarray(frame)
