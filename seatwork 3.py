@@ -14,4 +14,5 @@ while True:
     frame = cv2.imdecode(img_np, -1)
     #show the img
     cv2.imshow('Smart Scanner', frame)
-    cv2.waitKey(1)
+     if cv2.waitKey(1) == ord('s'):
+         print('save')
