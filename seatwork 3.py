@@ -23,10 +23,11 @@ while True:
         x, y, w, h = cv2.boundingRect(max_contour)
         if cv2.contourArea(max_contour) > 5000:
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 255), 2)
-    cv2.imshow('Smart Scanner', frame)
-    #save img
-    if cv2.waitKey(1) == ord('s'):
-        img_pil = Image.fromarray(frame)
-        time_str = time.strftime('%Y-%m-%d-%H-%M-%S')
-        img_pil.save(f'{time_str}.pdf')
-        print(time_str)
+            object_only = frame[y:y+h, x:x+w]
+            cv2.imshow('Smart Scanner', frame)
+            #save img
+            if cv2.waitKey(1) == ord('s'):
+                img_pil = Image.fromarray(frame)
+                time_str = time.strftime('%Y-%m-%d-%H-%M-%S')
+                img_pil.save(f'{time_str}.pdf')
+                print(time_str)
