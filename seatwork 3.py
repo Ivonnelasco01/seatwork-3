@@ -17,7 +17,7 @@ while True:
     frame_blur = cv2.GaussianBlur(frame_cvt, (5, 5), 0)
     frame_edge = cv2.Canny(frame_blur, 30, 50)
     #show the img
-    cv2.imshow('Smart Scanner', frame_edge)
+    cv2.imshow('Smart Scanner', frame)
     contours, h = cv2.findCountors(frame_edge, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
     if contours:
         max_contour = max(contours, key=cv2.contourArea)
