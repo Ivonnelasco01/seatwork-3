@@ -2,6 +2,7 @@
 import urllib.request as request
 import numpy as np
 import cv2
+from PIL import Image
 #paste ip in variable
 url = 'http://192.168.0.102:8080/shot.jpg'
 
@@ -14,5 +15,8 @@ while True:
     frame = cv2.imdecode(img_np, -1)
     #show the img
     cv2.imshow('Smart Scanner', frame)
-     if cv2.waitKey(1) == ord('s'):
+    #save img
+    if cv2.waitKey(1) == ord('s'):
+        img_pil = Image.fromarray(frame)
+        img_pil.save('my scanned item.pdf')
          print('save')
