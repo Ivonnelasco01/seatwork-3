@@ -18,5 +18,6 @@ while True:
     #save img
     if cv2.waitKey(1) == ord('s'):
         img_pil = Image.fromarray(frame)
+        time_str = time.strftime('%Y-%m-%d-%H-%M-%S')
         img_pil.save('my scanned item.pdf')
-        print('save')
+        print(time_str)
