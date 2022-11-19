@@ -6,3 +6,5 @@ url = "http://192.168.0.102:8080/shot.jpg"
 while True:
     #open img
     img = request.urlopen(url)
+    #convert img to bytes
+    img_bytes = bytearray(img.read())
