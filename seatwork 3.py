@@ -21,6 +21,7 @@ while True:
     contours, h = cv2.findCountors(frame_edge, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
     if contours:
         max_contour = max(contours, key=cv2.contourArea)
+        x, y, w, h = cv2.boundingRect(max_contour)
     #save img
     if cv2.waitKey(1) == ord('s'):
         img_pil = Image.fromarray(frame)
