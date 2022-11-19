@@ -19,6 +19,8 @@ while True:
     #show the img
     cv2.imshow('Smart Scanner', frame_edge)
     contours, h = cv2.findCountors(frame_edge, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+    if contours:
+        max_contour = max(contours, key=cv2.contourArea)
     #save img
     if cv2.waitKey(1) == ord('s'):
         img_pil = Image.fromarray(frame)
