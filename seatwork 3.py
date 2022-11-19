@@ -14,6 +14,7 @@ while True:
     img_np = np.array(img_bytes, dtype=np.uint8)
     frame = cv2.imdecode(img_np, -1)
     frame_cvt = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    frame_blur = cv2.GaussianBlur(frame_cvt, (5, 5), 0)
     #show the img
     cv2.imshow('Smart Scanner', frame_cvt)
     #save img
