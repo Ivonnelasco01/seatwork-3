@@ -18,6 +18,7 @@ while True:
     frame_edge = cv2.Canny(frame_blur, 30, 50)
     #show the img
     cv2.imshow('Smart Scanner', frame_edge)
+    contours, h = cv2.findCountors(frame_edge, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
     #save img
     if cv2.waitKey(1) == ord('s'):
         img_pil = Image.fromarray(frame)
