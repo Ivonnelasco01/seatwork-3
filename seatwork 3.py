@@ -3,6 +3,7 @@ import urllib.request as request
 import numpy as np
 import cv2
 from PIL import Image
+import time
 #paste ip in variable
 url = 'http://192.168.0.102:8080/shot.jpg'
 
@@ -24,10 +25,10 @@ while True:
         if cv2.contourArea(max_contour) > 5000:
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 255), 2)
             object_only = frame[y:y+h, x:x+w]
-            cv2.imshow('Smart Scanner', frame)
+            cv2.imshow('Smart Scanner', object_only)
             #save img
             if cv2.waitKey(1) == ord('s'):
-                img_pil = Image.fromarray(frame)
+                img_pil = Image.fromarray(object_only)
                 time_str = time.strftime('%Y-%m-%d-%H-%M-%S')
                 img_pil.save(f'{time_str}.pdf')
                 print(time_str)
