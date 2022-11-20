@@ -32,3 +32,5 @@ while True:
                 time_str = time.strftime('%Y-%m-%d-%H-%M-%S')
                 img_pil.save(f'{time_str}.pdf')
                 print(time_str)
+                
+# credits = https://www.youtube.com/watch?v=MAwOPyOztDs&t=1985s
